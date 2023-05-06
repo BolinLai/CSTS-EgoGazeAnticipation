@@ -1,0 +1,111 @@
+<!--?xml version="1.0" encoding="UTF-8"?-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>In the Eye of Transformer: Global-Local Correlation for Egocentric Gaze Estimation</title>
+<meta name="generator" content="Nested http://nestededitor.sourceforge.net/">
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+    menuSettings: {zoom: "Double-Click", zscale: "300%"},
+    tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]},
+    MathMenu: {showRenderer: false},
+    "HTML-CSS": {
+        availableFonts: ["TeX"],
+        preferredFont: "TeX",
+        imageFont: null
+    }
+  });
+</script>
+<style type="text/css">
+    body { background-color: White; font-family: Helvetica, Futura, "Trebuchet MS", sans-serif; width:900px; margin:0 auto;}
+    h1 { color: black; font-family:  Helvetica, Futura, "Trebuchet MS", sans-serif; font-size: 27px; }
+    h2 { color: black; font-family:  Helvetica, Futura, "Trebuchet MS", sans-serif; font-size: 22px}
+    h4 { color: black; font-family:  Helvetica, Futura, "Trebuchet MS", sans-serif; font-size: 15px; font-weight:normal}
+    p { color: black; font-family: Helvetica, Futura, "Trebuchet MS", sans-serif;}
+</style>
+</head>
+
+
+<body><div id="header" class="header" align="center">
+<h1>Listen to Look into the Future: <br />Audio-Visual Egocentric Gaze Anticipation</h1>
+
+<table style="width:90%">
+  <tbody><tr>
+    <td style="text-align:center"><font size="4"><a href="https://bolinlai.github.io/">Bolin Lai</a> </font></td>
+    <td style="text-align:center"><font size="4"><a href="https://fkryan.github.io/">Fiona Ryan</a> </font></td>
+    <td style="text-align:center"><font size="4"><a href="https://vjwq.github.io/">Wenqi Jia</a> </font></td>
+    <td style="text-align:center"><font size="4"><a href="https://aptx4869lm.github.io/">Miao Liu*</a> </font></td>
+    <td style="text-align:center"><font size="4"><a href="https://rehg.org/">James M. Rehg*</a></td>
+  </tr>
+  <tr>
+  <td style="text-align:center">Georgia Institute of Technology</td> 
+  <td style="text-align:center">Georgia Institute of Technology</td>
+  <td style="text-align:center">Georgia Institute of Technology</td> 
+  <td style="text-align:center">Meta AI</td> 
+  <td style="text-align:center">Georgia Institute of Technology</td> 
+  </tr>
+</tbody></table>
+
+<p>
+  <!-- <a href="??" style="font-size: 24px;">[code]</a> -->
+  <a style="font-size: 24px;" href="">[Paper]</a>
+  <!-- <a style="font-size: 24px;" href="">[Supplementary]</a>  -->
+  <!-- <a style="font-size: 24px;" href="">[Poster]</a>  -->
+  <!-- <a style="font-size: 24px;" href="">[Dataset Split]</a>  -->
+  <a style="font-size: 24px;" href="">[Code]</a> <br />
+  
+</p>
+
+
+</div>
+
+<div style="text-align: center;">
+  <img src="teaser.png"  style="width:400px;height:400px;">
+</div>
+
+<h4>
+Egocentric gaze anticipation problem setting. $\tau_o$ denotes the observation time, and $\tau_a$ denotes the anticipation time. Given the video frames and audio of the Input Video Sequence, we aim to predict the gaze fixation distribution for the time steps in the Gaze Anticipation Sequence. Green dots indicate the gaze targets in future frames and the heatmap shows the gaze anticipation result from our model.
+</h4>
+
+<h2>Abstract</h2>
+Egocentric gaze anticipation serves as a key building block for the emerging capability of Augmented Reality. Notably, gaze behavior is driven by both visual cues and audio signals during daily activities. Motivated by this observation, we introduce the first model that leverages both the video and audio modalities for egocentric gaze anticipation. Specifically, we propose a Contrastive Spatial-Temporal Separable (CSTS) fusion approach that adopts two modules to separately capture audio-visual correlations in spatial and temporal dimensions, and applies a contrastive loss on the re-weighted audio-visual features from fusion modules for representation learning. We conduct extensive ablation studies and thorough analysis using two egocentric video datasets: Ego4D and Aria, to validate our model design. We also demonstrate improvements over prior state-of-the-art methods. Moreover, we provide visualizations to show the gaze anticipation results and provide additional insights into audio-visual representation learning.
+
+<h2>Method</h2>
+<div style="text-align: center;">
+  <img src="method.png"  style="width:800px;height:350px;">
+</div>
+
+<h4>
+Overview of the proposed model. The video embeddings $\phi(x)$ and audio embeddings$\psi(a)$ are obtained by two transformer-based encoders. We then model the correlations of visual and audio embeddings using two separate branches -- (1) spatial fusion, which learns the spatial co-occurence of audio signals and visual objects in each frame, and (2) temporal fusion, which captures the temporal correlations and possible gaze movement. A contrastive loss is adopted to facilitate audio-visual representation learning. We input the fused embeddings into a decoder for final gaze anticipation results.
+</h4>
+
+<br>
+<hr class="heavy">
+
+<h2>Demo Video</h2>
+<div style="text-align: center;">
+<video controls="controls" width="720">
+  <source src="Demo.mp4" type="video/mp4">
+</video>
+</div>
+<hr class="heavy">
+
+<h2 id="bibtex">Cite</h2>
+
+If you find this work useful in your own research, please consider citing:
+<!-- <pre>
+@article{lai2022eye,
+  title={In the Eye of Transformer: Global-Local Correlation for Egocentric Gaze Estimation},
+  author={Lai, Bolin and Liu, Miao and Ryan, Fiona and Rehg, James},
+  journal={British Machine Vision Conference},
+  year={2022}
+}
+</pre> -->
+
+<h2 id="Contact">Contact</h2>
+For questions about paper, please contact bolin dot lai at gatech dot edu
+<br>
+</body></html>
